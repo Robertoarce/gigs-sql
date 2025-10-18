@@ -1,0 +1,49 @@
+
+erDiagram
+    PROJECTS ||--o{ PLAN_CHANGE_EVENTS : "creates"
+    PROJECTS ||--o{ USAGE_BY_SUBSCRIPTION_PERIOD : "has"
+    PLAN_CHANGE_EVENTS ||--o{ USAGE_BY_SUBSCRIPTION_PERIOD : "used_in"
+
+    PROJECTS {
+        string project_id__hashed PK "Hashed project identifier"
+        string project_type "API or Connect"
+        string organization_name "Organization name"
+        string device_type "Phones or Wearables"
+    }
+
+    PLAN_CHANGE_EVENTS {
+        string plan_id PK "Plan identifier"
+        string project_id__hashed FK "Links to PROJECTS"
+        datetime plan_created_at "Plan creation timestamp"
+        string event_type "created, updated, published, archived"
+        datetime event_timestamp "When event occurred"
+        string plan_name "Name of the plan"
+        string network_provider_id "Network provider"
+        string price_currency "USD, etc"
+        decimal plan_price_amount_local "Plan price"
+        decimal data_allowance_mb "Data allowance in MB"
+        boolean is_unlimited_data "Unlimited data flag"
+        decimal voice_allowance_seconds "Voice allowance"
+        boolean is_unlimited_voice "Unlimited voice flag"
+        decimal sms_allowance "SMS allowance"
+        boolean is_unlimited_sms "Unlimited SMS flag"
+        int validity_value "Validity period value"
+        string validity_unit "day or month"
+        datetime _valid_from "Temporal: valid from"
+        datetime _valid_to "Temporal: valid to"
+        boolean _is_current_state "Current state flag"
+    }
+
+    USAGE_BY_SUBSCRIPTION_PERIOD {
+        string subscription_id PK "Subscription identifier"
+        string project_id__hashed FK "Links to PROJECTS"
+        string plan_id FK "Links to PLAN_CHANGE_EVENTS"
+        datetime reporting_date "Date of report"
+        date subscription_period_start "Period start date"
+        date subscription_period_end "Period end date"
+        int subscription_period_number "Period number"
+        decimal cumulative_data_usage_megabyte "Data used in MB"
+        decimal cumulative_voice_usage_minutes "Voice used in minutes"
+        decimal cumulative_sms_usage "SMS count"
+        int number_of_addons_activated "Add-ons count"
+    }
