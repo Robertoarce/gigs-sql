@@ -2,47 +2,55 @@ Dear [stakeholder name],
 
 Here are the key Insights regarding your questions:
 
-1️⃣ How much data does a subscription typically consume?
+1️⃣ **How much data does a subscription typically consume?**
 
 Typical Data Consumption depends on the granularity, here is at a global view:
 
-- Median usage: ~298 MB per subscription period ( more insights about this in the next questions)
-- High spread on usage across customers (many low-usage + some power users)
-- 80% of subscriptions consume less than ~1,000 MB (see the **zoomed** graph below, the median )
+- Median usage: ~250 MB per subscription period ( more insights about this in the next questions)
+- High spread on usage across customers (many low-usage + and some power users)
+- Almost 75% of subscriptions consume less than ~1,000 MB (see the **yellow** doted line )
 
-![Cumulative Usage Distribution](./img/cumulative_dist.png)
+<table>
+  <tr>
+    <td><img src="./img/usage_average.png" width="700"/></td>
+    <td><img src="./img/cumulative_dist.png" width="700"/></td>
+    <td><img src="./img/usabox.png" width="700"/></td>
+  </tr>
+</table>
 
-**NB : Please note that the picture is zoomed due to the outliers. More on outliers later**
+At left the we can see the vast amount of users that dont consume much.
+At middle the cumulative percentage that it represents, as you can see almost 75% consume less than 1gb
+The right graph (for more stats people) shows the big amount of outliers present.
 
-2️⃣ How does usage look like at different plan data allowances?
+2️⃣ **How does usage look like at different plan data allowances?**
 
-The Usage by Plan Type is significantly different among plans; Unlimited/Ultra Unlimited plans drive significantly higher consumption.
+The Usage by Plan Type is significantly different among plans; Ultra Unlimited plans drive significantly higher consumption.
 There is a clear correlation between plan allowances and actual usage.
-In the other side, if you wonder if our Network provider have any impact on the usage, the answer is no; It has no measurable effect on usage patterns.
 
 ![Usage by Plan Type](./img/usage_by_plan.png)
 
-_>>More in depth investigations can be done in this subject.<<_
+_>>More in depth investigations can be done in this subject. For example the influence of netwrok provider in consumption (is there tech issues?).<<_
 
-3️⃣ Do subscriptions typically consume consistent amounts of data throughout their lifetime?
+3️⃣ **Do subscriptions typically consume consistent amounts of data throughout their lifetime?**
 
 The usage consistency is can be measured by a consistency metric: coefficient of variation (CV).
 I found that the CV is Moderately consistent overall (CV = 0.98) (better view on the graph bellow)
-Furthermore, 43% of subscriptions show consistent usage patterns (CV ≤ 1)
+Furthermore, 50% of subscriptions show consistent usage patterns (CV ≤ 1)
 ![Consistency usage](./img/consistency_usage.png)
 
-Here is a better graph through time:
+Here a graph throughout time:
 
 ![Consistency usage](./img/consistency_through_time.png)
 
-Notice how the majority of the subscriptions become more consistent over time (excluding the outliers, the points outside the boxes - roight graph -).
+**Right graph**: _Notice how the majority of the subscriptions stay consistent over time (excluding the outliers, that are more visible later, the points outside the boxes)._
 
-4️⃣ ⚠️ Compare the retention pattern for the most recently launched project versus the two older ones.
+4️⃣ **Compare the retention pattern for the most recently launched project versus the two older ones.**
 
-Retention in the other side is well defined by
+**_Retention_:**  
+Here we can see a big difference between projects.
 ACME Phone (newest project) shows significantly lower retention vs older projects
-People Mobile & SmartDevices Inc. maintain 50%+ retention at period 16
-ACME Phone drops faster, suggesting underlying issues
+People Mobile & SmartDevices Inc. loose more than 50% of users in the second period!.
+ACME Phone drops at period 13, suggesting underlying issues.
 
 ![Retention Red Flag](./img/retention.png)
 

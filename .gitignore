@@ -1,1 +1,4 @@
 *.db.*
+*.db
+gigs-analytics.db
+gigs-analytics.db.wal
